@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:42:50 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/10 18:29:08 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/01/11 17:11:35 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 // printf
 int		ft_printf(const char *s, ...);
-void	ft_write(va_list args, char const *s, int *count);
-int		ft_parse(va_list args, char c);
 int		ft_parse_char(char c);
 int		ft_parse_str(char *str);
 int		ft_parse_void(void *addr);

@@ -6,13 +6,13 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:05:23 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/10 15:59:05 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/01/11 17:12:27 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_parse(va_list args, char c)
+static int	ft_parse(va_list args, char c)
 {
 	if (c == 'c')
 		return (ft_parse_char(va_arg(args, int)));
@@ -29,7 +29,7 @@ int	ft_parse(va_list args, char c)
 	return (-1);
 }
 
-void	ft_write(va_list args, char const *s, int *count)
+static void	ft_write(va_list args, char const *s, int *count)
 {
 	unsigned int	i;
 
