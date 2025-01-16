@@ -6,13 +6,13 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:27:33 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/10 18:35:38 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/01/11 17:13:58 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_join(char *buffer, char *tmp)
+static char	*ft_join(char *buffer, char *tmp)
 {
 	char	*res;
 
@@ -20,7 +20,7 @@ char	*ft_join(char *buffer, char *tmp)
 	return (free(buffer), res);
 }
 
-char	*ft_read(char *buffer, int fd)
+static char	*ft_read(char *buffer, int fd)
 {
 	char	*tmp;
 	ssize_t	bytes_read;
@@ -44,7 +44,7 @@ char	*ft_read(char *buffer, int fd)
 	return (free(tmp), buffer);
 }
 
-char	*ft_line(char *buffer)
+static char	*ft_line(char *buffer)
 {
 	int		i;
 
@@ -58,7 +58,7 @@ char	*ft_line(char *buffer)
 	return (ft_strndup(buffer, i + 1));
 }
 
-void	*ft_offset(char *dest, void const *src, size_t n)
+static void	*ft_offset(char *dest, void const *src, size_t n)
 {
 	unsigned char	*pdest;
 	unsigned char	*psrc;
