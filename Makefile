@@ -6,7 +6,7 @@
 #    By: afaugero <afaugerou@42.fr>                    +#+  +:+       +#+      #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 14:40:40 by afaugero          #+#    #+#              #
-#    Updated: 2025/01/10 18:37:10 by afaugero         ###   ########.fr        #
+#    Updated: 2025/01/17 19:18:22 by afaugero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,54 +14,71 @@ NAME = libft.a
 CC = gcc
 INCLUDES = includes
 
-SRC = ft_isalpha \
-		ft_isdigit \
-		ft_isalnum \
-		ft_isascii \
-		ft_isprint \
-		ft_strlen \
-		ft_toupper \
-		ft_tolower \
-		ft_strncmp \
-		ft_atoi \
-		ft_memcmp \
-		ft_memmove \
-		ft_strlcpy \
-		ft_strlcat \
-		ft_strchr \
-		ft_strrchr \
-		ft_strdup \
-		ft_strndup \
-		ft_substr \
-		ft_strjoin \
-		ft_strtrim \
-		ft_strnstr \
-		ft_itoa \
-		ft_strmapi \
-		ft_split \
-		ft_putchar_fd \
-		ft_putstr_fd \
-		ft_putendl_fd \
-		ft_bzero \
-		ft_striteri \
-		ft_putnbr_fd \
-		ft_memset \
-		ft_memcpy \
-		ft_memchr \
-		ft_calloc \
-		ft_lstnew \
-		ft_lstadd_front \
-		ft_lstsize \
-		ft_lstlast \
-		ft_lstadd_back \
-		ft_lstdelone \
-		ft_lstclear \
-		ft_lstiter \
-		ft_lstmap \
-		printf/printf \
-		printf/parsers	\
-		printf/parse_hex \
-		get_next_line \
+CHECK = check
+PRINT = print
+PRINTF = printf
+STRING = string
+CONVERT = convert
+MEM = mem
+ITERATIVE = iterative
+LINKED_LIST = linked_list
+FILE = file
+
+SRC = ${CHECK}/ft_isalpha \
+		${CHECK}/ft_isdigit \
+		${CHECK}/ft_isalnum \
+		${CHECK}/ft_isascii \
+		${CHECK}/ft_isprint \
+		${PRINT}/ft_putchar_fd \
+		${PRINT}/ft_putstr_fd \
+		${PRINT}/ft_putendl_fd \
+		${PRINT}/ft_putnbr_fd \
+		${PRINT}/${PRINTF}/printf \
+		${PRINT}/${PRINTF}/parsers \
+		${PRINT}/${PRINTF}/parse_hex \
+		${STRING}/ft_strlen \
+		${STRING}/ft_toupper \
+		${STRING}/ft_tolower \
+		${STRING}/ft_strncmp \
+		${STRING}/ft_strlcpy \
+		${STRING}/ft_strlcat \
+		${STRING}/ft_strchr \
+		${STRING}/ft_strrchr \
+		${STRING}/ft_strdup \
+		${STRING}/ft_strndup \
+		${STRING}/ft_substr \
+		${STRING}/ft_strjoin \
+		${STRING}/ft_strtrim \
+		${STRING}/ft_strnstr \
+		${STRING}/ft_strmapi \
+		${STRING}/ft_split \
+		${STRING}/ft_striteri \
+		${CONVERT}/ft_atoi \
+		${CONVERT}/ft_itoa \
+		${MEM}/ft_bzero \
+		${MEM}/ft_memcmp \
+		${MEM}/ft_memmove \
+		${MEM}/ft_memset \
+		${MEM}/ft_memcpy \
+		${MEM}/ft_memchr \
+		${MEM}/ft_calloc \
+		${ITERATIVE}/ft_foreach \
+		${ITERATIVE}/ft_map \
+		${ITERATIVE}/ft_any \
+		${ITERATIVE}/ft_every \
+		${ITERATIVE}/ft_count_if \
+		${ITERATIVE}/ft_is_sort \
+		${ITERATIVE}/ft_sort \
+		${LINKED_LIST}/ft_lstnew \
+		${LINKED_LIST}/ft_lstadd_front \
+		${LINKED_LIST}/ft_lstsize \
+		${LINKED_LIST}/ft_lstlast \
+		${LINKED_LIST}/ft_lstadd_back \
+		${LINKED_LIST}/ft_lstdelone \
+		${LINKED_LIST}/ft_lstclear \
+		${LINKED_LIST}/ft_lstiter \
+		${LINKED_LIST}/ft_lstmap \
+		${FILE}/get_next_line \
 
 SRCS = $(addsuffix .c, ${SRC})
 
