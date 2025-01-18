@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 16:33:05 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/18 15:47:42 by afaugero         ###   ########.fr       */
+/*   Created: 2025/01/18 17:01:17 by afaugero          #+#    #+#             */
+/*   Updated: 2025/01/18 17:01:52 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void    ft_foreach(void **tab, size_t length, void(*f)(void *))
+int	ft_strcmp(const char *s1, const char *s2)
 {
-    size_t i;
+	size_t	i;
 
-    if (!tab || !f || length == 0)
-        return ;
-    i = 0;
-    while (i < length)
-    {
-        if (tab[i])
-            f(tab[i]);
-        i++;
-    }
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

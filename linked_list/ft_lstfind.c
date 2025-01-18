@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach.c                                       :+:      :+:    :+:   */
+/*   ft_lstfind.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 16:33:05 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/18 15:47:42 by afaugero         ###   ########.fr       */
+/*   Created: 2025/01/18 18:39:20 by afaugero          #+#    #+#             */
+/*   Updated: 2025/01/18 18:58:00 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void    ft_foreach(void **tab, size_t length, void(*f)(void *))
+t_list  *ft_lstfind(t_list *head, void *data_ref, int (*cmp)(void *, void *))
 {
-    size_t i;
+    t_list *curr;
 
-    if (!tab || !f || length == 0)
-        return ;
-    i = 0;
-    while (i < length)
+    if (head == NULL)
+        return NULL;
+    curr = head;
+    while (curr != NULL)
     {
-        if (tab[i])
-            f(tab[i]);
-        i++;
+        if (cmp(curr->content, data_ref) == 0)
+            return (curr);
+        curr = curr->next;
     }
+    return NULL;
 }
+

@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:30:33 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/17 18:02:24 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/01/18 16:22:46 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,3 @@ bool    ft_every(void **tab, size_t length, int(*f)(void *))
     }
     return (true);
 }
-

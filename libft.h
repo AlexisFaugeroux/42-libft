@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:42:50 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/17 19:19:59 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:58:19 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int		ft_parse_hex(unsigned long nb, char c);
 // string
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_strcmp(char const *s1, char const *s2);
 int		ft_strncmp(char const *s1, char const *s2, size_t n);
 char	*ft_strchr(char const *s, int c);
 char	*ft_strrchr(char const *s, int c);
@@ -72,6 +73,7 @@ size_t	ft_strlcat(char *dst, char const *src, size_t dstsize);
 
 // convert
 int		ft_atoi(char const *nptr);
+long	ft_atol(char const *nptr);
 char	*ft_itoa(int n);
 char	*ft_uitoa(unsigned int n);
 char	*ft_ulong_itoa_base(unsigned long nbr, char const *base_to);
@@ -100,7 +102,16 @@ void	ft_lstadd_front(t_list **lst, t_list *new_elem);
 void	ft_lstadd_back(t_list **lst, t_list *new_elem);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_lstforeach(t_list *lst, void (*f)(void *));
+void    ft_lstforeach_if(t_list *lst, void (*f)(void *),
+                         void *data_ref, int (*cmp)(void *, void *));
+void    ft_lstmerge(t_list **head1, t_list *head2);
+void    ft_lstremove_if(t_list **head, void *data_ref,
+                          int (*cmp)(void *, void *), void (*free_fct)(void *));
+void    ft_lstreverse(t_list **head);
+void    ft_lstsort(t_list **head, int (*cmp)(void *, void *));
+t_list  *ft_lstat(t_list *head, unsigned int nb);
+t_list  *ft_lstfind(t_list *head, void *data_ref, int (*cmp)(void *, void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);

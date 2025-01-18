@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 11:52:47 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/18 15:29:11 by afaugero         ###   ########.fr       */
+/*   Created: 2025/01/18 15:14:07 by afaugero          #+#    #+#             */
+/*   Updated: 2025/01/18 15:29:38 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
-int	ft_atoi(char const *nptr)
+long	ft_atol(char const *nptr)
 {
-	int		i;
-	int		sign;
-	long	nb;
+	int		    i;
+	int		    sign;
+	long long	nb;
 
 	nb = 0;
 	sign = 1;
@@ -42,5 +42,5 @@ int	ft_atoi(char const *nptr)
 		nb = (nb * 10) + *(nptr + i) - '0';
 		i++;
 	}
-	return ((int)(sign * nb));
+	return ((long)(sign * nb));
 }

@@ -6,7 +6,7 @@
 #    By: afaugero <afaugerou@42.fr>                    +#+  +:+       +#+      #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 14:40:40 by afaugero          #+#    #+#              #
-#    Updated: 2025/01/17 19:18:22 by afaugero         ###   ########.fr        #
+#    Updated: 2025/01/18 18:53:11 by afaugero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC = ${CHECK}/ft_isalpha \
 		${STRING}/ft_strlen \
 		${STRING}/ft_toupper \
 		${STRING}/ft_tolower \
+		${STRING}/ft_strcmp \
 		${STRING}/ft_strncmp \
 		${STRING}/ft_strlcpy \
 		${STRING}/ft_strlcat \
@@ -54,7 +55,10 @@ SRC = ${CHECK}/ft_isalpha \
 		${STRING}/ft_split \
 		${STRING}/ft_striteri \
 		${CONVERT}/ft_atoi \
+		${CONVERT}/ft_atol \
 		${CONVERT}/ft_itoa \
+		${CONVERT}/ft_uitoa \
+		${CONVERT}/ft_itoa_base \
 		${MEM}/ft_bzero \
 		${MEM}/ft_memcmp \
 		${MEM}/ft_memmove \
@@ -69,15 +73,22 @@ SRC = ${CHECK}/ft_isalpha \
 		${ITERATIVE}/ft_count_if \
 		${ITERATIVE}/ft_is_sort \
 		${ITERATIVE}/ft_sort \
-		${LINKED_LIST}/ft_lstnew \
 		${LINKED_LIST}/ft_lstadd_front \
-		${LINKED_LIST}/ft_lstsize \
-		${LINKED_LIST}/ft_lstlast \
 		${LINKED_LIST}/ft_lstadd_back \
-		${LINKED_LIST}/ft_lstdelone \
+		${LINKED_LIST}/ft_lstat \
 		${LINKED_LIST}/ft_lstclear \
-		${LINKED_LIST}/ft_lstiter \
+		${LINKED_LIST}/ft_lstdelone \
+		${LINKED_LIST}/ft_lstfind \
+		${LINKED_LIST}/ft_lstforeach \
+		${LINKED_LIST}/ft_lstforeach_if \
+		${LINKED_LIST}/ft_lstlast \
 		${LINKED_LIST}/ft_lstmap \
+		${LINKED_LIST}/ft_lstmerge \
+		${LINKED_LIST}/ft_lstnew \
+		${LINKED_LIST}/ft_lstremove_if \
+		${LINKED_LIST}/ft_lstreverse \
+		${LINKED_LIST}/ft_lstsize \
+		${LINKED_LIST}/ft_lstsort \
 		${FILE}/get_next_line \
 
 SRCS = $(addsuffix .c, ${SRC})
