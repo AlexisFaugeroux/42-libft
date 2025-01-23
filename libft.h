@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:42:50 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/18 18:58:19 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:32:37 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,22 +79,23 @@ char	*ft_uitoa(unsigned int n);
 char	*ft_ulong_itoa_base(unsigned long nbr, char const *base_to);
 
 // memory
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	ft_bzero(void *s, size_t n);
-void	*ft_memset(void *s, int c, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_memchr(const void *s, int c, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
-void	*ft_memchr(const void *s, int c, size_t n);
-void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_memswap(void **a, void **b);
 
 // iterative
-int     ft_count_if(void **tab, size_t length, int(*f)(void *));
-bool    ft_any(void **tab, size_t length, int(*f)(void *));
-bool    ft_every(void **tab, size_t length, int(*f)(void *));
-bool    ft_is_sort(void **tab, size_t length, int(*cmp)(void *, void *));
-void    ft_foreach(void **tab, size_t length, void(*f)(void *));
-void    ft_sort(void **tab, size_t length, int(*cmp)(void *, void *));
-void    **ft_map(void **tab, size_t length, void *(*f)(void *));
+int		ft_count_if(void **tab, size_t length, int (*f)(void *));
+bool	ft_any(void **tab, size_t length, int (*f)(void *));
+bool	ft_every(void **tab, size_t length, int (*f)(void *));
+bool	ft_is_sort(void **tab, size_t length, int (*cmp)(void *, void *));
+void	ft_foreach(void **tab, size_t length, void (*f)(void *));
+void	ft_sort(void **tab, size_t length, int (*cmp)(void *, void *));
+void	**ft_map(void **tab, size_t length, void *(*f)(void *));
 
 // linked list
 int		ft_lstsize(t_list *lst);
@@ -103,15 +104,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new_elem);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstforeach(t_list *lst, void (*f)(void *));
-void    ft_lstforeach_if(t_list *lst, void (*f)(void *),
-                         void *data_ref, int (*cmp)(void *, void *));
-void    ft_lstmerge(t_list **head1, t_list *head2);
-void    ft_lstremove_if(t_list **head, void *data_ref,
-                          int (*cmp)(void *, void *), void (*free_fct)(void *));
-void    ft_lstreverse(t_list **head);
-void    ft_lstsort(t_list **head, int (*cmp)(void *, void *));
-t_list  *ft_lstat(t_list *head, unsigned int nb);
-t_list  *ft_lstfind(t_list *head, void *data_ref, int (*cmp)(void *, void *));
+void	ft_lstforeach_if(t_list *lst, void (*f)(void *),
+			void *data_ref, int (*cmp)(void *, void *));
+void	ft_lstmerge(t_list **head1, t_list *head2);
+void	ft_lstremove_if(t_list **head, void *data_ref,
+			int (*cmp)(void *, void *), void (*free_fct)(void *));
+void	ft_lstreverse(t_list **head);
+void	ft_lstsort(t_list *head, int (*cmp)(void *, void *));
+t_list	*ft_lstat(t_list *head, unsigned int nb);
+t_list	*ft_lstfind(t_list *head, void *data_ref, int (*cmp)(void *, void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);

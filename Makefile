@@ -6,7 +6,7 @@
 #    By: afaugero <afaugerou@42.fr>                    +#+  +:+       +#+      #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 14:40:40 by afaugero          #+#    #+#              #
-#    Updated: 2025/01/18 18:53:11 by afaugero         ###   ########.fr        #
+#    Updated: 2025/01/23 14:50:04 by afaugero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,12 +60,13 @@ SRC = ${CHECK}/ft_isalpha \
 		${CONVERT}/ft_uitoa \
 		${CONVERT}/ft_itoa_base \
 		${MEM}/ft_bzero \
+		${MEM}/ft_calloc \
+		${MEM}/ft_memchr \
 		${MEM}/ft_memcmp \
+		${MEM}/ft_memcpy \
 		${MEM}/ft_memmove \
 		${MEM}/ft_memset \
-		${MEM}/ft_memcpy \
-		${MEM}/ft_memchr \
-		${MEM}/ft_calloc \
+		${MEM}/ft_memswap \
 		${ITERATIVE}/ft_foreach \
 		${ITERATIVE}/ft_map \
 		${ITERATIVE}/ft_any \

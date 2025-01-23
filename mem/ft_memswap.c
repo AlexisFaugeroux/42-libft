@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfind.c                                       :+:      :+:    :+:   */
+/*   ft_memswap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 18:39:20 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/23 14:37:48 by afaugero         ###   ########.fr       */
+/*   Created: 2025/01/23 13:49:34 by afaugero          #+#    #+#             */
+/*   Updated: 2025/01/23 13:51:27 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
-
-t_list	*ft_lstfind(t_list *head, void *data_ref, int (*cmp)(void *, void *))
+void	ft_memswap(void **a, void **b)
 {
-	t_list	*curr;
+	void	*tmp;
 
-	if (head)
-		return (NULL);
-	curr = head;
-	while (curr != NULL)
-	{
-		if (cmp(curr->content, data_ref) == 0)
-			return (curr);
-		curr = curr->next;
-	}
-	return (NULL);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
