@@ -6,13 +6,13 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:30:33 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/23 14:41:55 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/01/24 10:55:10 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-bool	ft_every(void **tab, size_t length, int (*f)(void *))
+bool	ft_every(void **tab, size_t length, bool (*f)(void *))
 {
 	size_t	i;
 

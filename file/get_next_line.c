@@ -6,83 +6,85 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:27:33 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/17 19:16:50 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/01/29 21:53:30 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static char	*ft_join(char *buffer, char *tmp)
+static void	ft_read(char buffer[FD_SETSIZE][BUFFER_SIZE], int fd)
 {
-	char	*res;
-
-	res = ft_strjoin(buffer, tmp);
-	return (free(buffer), res);
-}
-
-static char	*ft_read(char *buffer, int fd)
-{
-	char	*tmp;
 	ssize_t	bytes_read;
+	ssize_t	len;
 
-	if (!buffer)
-		buffer = ft_calloc(1, 1);
-	tmp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	len = ft_strlen(buffer[fd]);
 	bytes_read = 1;
-	while (bytes_read > 0)
+	while (!ft_strchr(buffer[fd], '\n') && bytes_read > 0)
 	{
-		bytes_read = read(fd, tmp, BUFFER_SIZE);
-		if (bytes_read < 0)
-			return (free(buffer), free(tmp), NULL);
-		tmp[bytes_read] = '\0';
-		buffer = ft_join(buffer, tmp);
-		if (ft_strchr(tmp, '\n'))
+		if (len >= BUFFER_SIZE - 1)
 			break ;
+		bytes_read = read(fd, buffer[fd] + len, BUFFER_SIZE - len - 1);
+		if (bytes_read > 0)
+		{
+			len += bytes_read;
+			buffer[fd][len] = '\0';
+		}
+		if (ft_strchr(buffer[fd], '\n'))
+			return ;
 	}
-	if (*buffer == '\0')
-		return (free(buffer), free(tmp), NULL);
-	return (free(tmp), buffer);
+	if (bytes_read == 0 && !ft_strlen(buffer[fd]))
+		buffer[fd][0] = '\0';
 }
 
 static char	*ft_line(char *buffer)
 {
 	int		i;
 
-	if (!buffer)
+	if (!buffer[0])
 		return (NULL);
 	i = 0;
-	while (*(buffer + i) && *(buffer + i) != '\n')
+	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	if (!ft_strchr(buffer, '\n'))
-		return (ft_strndup(buffer, i));
-	return (ft_strndup(buffer, i + 1));
+	if (buffer[i] == '\n')
+		return (ft_strndup(buffer, i + 1));
+	return (ft_strndup(buffer, i));
 }
 
-static void	*ft_offset(char *dest, void const *src, size_t n)
+static void	ft_offset(char buffer[], size_t n)
 {
-	if (!src || !dest)
-		return (NULL);
-	ft_memmove(dest, src, n);
-	*(dest + ft_strlen(dest)) = '\0';
-	return (dest);
+	size_t	remaining_len;
+
+	if (n >= ft_strlen(buffer))
+	{
+		buffer[0] = '\0';
+		return ;
+	}
+	remaining_len = ft_strlen(buffer + n);
+	ft_memmove(buffer, buffer + n, remaining_len);
+	buffer[remaining_len] = '\0';
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[FD_SETSIZE];
+	static char	buffer[FD_SETSIZE][BUFFER_SIZE] = {{0}};
 	char		*line;
 	ssize_t		l_len;
-	ssize_t		b_len;
 
 	if (fd < 0 || fd > FD_SETSIZE || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!buffer[fd] || !ft_strchr(buffer[fd], '\n'))
-		buffer[fd] = ft_read(buffer[fd], fd);
+	if (!ft_strchr(buffer[fd], '\n'))
+		ft_read(buffer, fd);
+	if (!buffer[fd][0])
+		return (NULL);
 	line = ft_line(buffer[fd]);
+	if (!line)
+		return (NULL);
 	l_len = ft_strlen(line);
-	b_len = ft_strlen(buffer[fd]);
-	buffer[fd] = ft_offset(buffer[fd], buffer[fd] + l_len, b_len - l_len + 1);
-	if (!buffer[fd])
-		return (free(line), NULL);
+	ft_offset(buffer[fd], l_len);
+	if (!line[0])
+	{
+		free(line);
+		return (NULL);
+	}
 	return (line);
 }

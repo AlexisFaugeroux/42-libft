@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:42:50 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/23 14:32:37 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:45:48 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <limits.h>
 # include <stdbool.h>
 
-# define BUFFER_SIZE 80
+# define BUFFER_SIZE 1024
 # define FT_HEX_BASE_LOW "0123456789abcdef"
 # define FT_HEX_BASE_UP "0123456789ABCDEF"
 
@@ -91,7 +91,7 @@ void	*ft_memswap(void **a, void **b);
 // iterative
 int		ft_count_if(void **tab, size_t length, int (*f)(void *));
 bool	ft_any(void **tab, size_t length, int (*f)(void *));
-bool	ft_every(void **tab, size_t length, int (*f)(void *));
+bool	ft_every(void **tab, size_t length, bool (*f)(void *));
 bool	ft_is_sort(void **tab, size_t length, int (*cmp)(void *, void *));
 void	ft_foreach(void **tab, size_t length, void (*f)(void *));
 void	ft_sort(void **tab, size_t length, int (*cmp)(void *, void *));
