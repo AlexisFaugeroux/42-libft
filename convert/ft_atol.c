@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:14:07 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/18 15:29:38 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:29:18 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static int	ft_isspace(int c)
 
 long	ft_atol(char const *nptr)
 {
-	int		    i;
-	int		    sign;
+	int			i;
+	int			sign;
 	long long	nb;
 
 	nb = 0;
