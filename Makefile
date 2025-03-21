@@ -6,7 +6,7 @@
 #    By: afaugero <afaugerou@42.fr>                    +#+  +:+       +#+      #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 14:40:40 by afaugero          #+#    #+#              #
-#    Updated: 2025/01/23 14:50:04 by afaugero         ###   ########.fr        #
+#    Updated: 2025/03/12 15:04:27 by afaugero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDES = includes
 
 CHECK = check
 PRINT = print
-PRINTF = printf
+PRINTF = ft_printf
 STRING = string
 CONVERT = convert
 MEM = mem
@@ -25,15 +25,16 @@ LINKED_LIST = linked_list
 FILE = file
 
 SRC = ${CHECK}/ft_isalpha \
-		${CHECK}/ft_isdigit \
 		${CHECK}/ft_isalnum \
 		${CHECK}/ft_isascii \
+		${CHECK}/ft_isdigit \
 		${CHECK}/ft_isprint \
+		${CHECK}/ft_isspace \
 		${PRINT}/ft_putchar_fd \
 		${PRINT}/ft_putstr_fd \
 		${PRINT}/ft_putendl_fd \
 		${PRINT}/ft_putnbr_fd \
-		${PRINT}/${PRINTF}/printf \
+		${PRINT}/${PRINTF}/ft_printf \
 		${PRINT}/${PRINTF}/parsers \
 		${PRINT}/${PRINTF}/parse_hex \
 		${STRING}/ft_strlen \
@@ -56,6 +57,7 @@ SRC = ${CHECK}/ft_isalpha \
 		${STRING}/ft_striteri \
 		${CONVERT}/ft_atoi \
 		${CONVERT}/ft_atol \
+		${CONVERT}/ft_atod \
 		${CONVERT}/ft_itoa \
 		${CONVERT}/ft_uitoa \
 		${CONVERT}/ft_itoa_base \

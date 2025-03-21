@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:23:09 by afaugero          #+#    #+#             */
-/*   Updated: 2025/01/17 19:01:14 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/02/08 12:01:23 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	*ft_write_split(char **split, char const *s, char c)
 			split[k++] = ft_strndup(&s[i], j - i);
 			if (!split[k - 1])
 			{
-				ft_free_split(split, (k - 1) - 1);
+				ft_free_split(split, k - 1);
 				return (NULL);
 			}
 			i = j;
@@ -87,6 +87,9 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	split[words] = 0;
 	if (ft_write_split(split, s, c) == NULL)
+	{
+		ft_free_split(split, words);
 		return (NULL);
+	}
 	return (split);
 }
